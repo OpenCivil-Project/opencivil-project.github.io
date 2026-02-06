@@ -46,7 +46,7 @@ export function Navbar() {
           </a>
           <Button asChild>
             <a href="https://github.com/ShaikhAhmedAzad/OpenCivil/releases/latest" target="_blank" rel="noopener noreferrer">
-              Download v0.51
+              Download v0.651
             </a>
           </Button>
         </div>
@@ -73,7 +73,7 @@ export function Navbar() {
             </a>
             <Button asChild className="w-full">
               <a href="https://github.com/ShaikhAhmedAzad/OpenCivil/releases/latest" target="_blank" rel="noopener noreferrer">
-                Download v0.51
+                Download v0.651
               </a>
             </Button>
           </div>
