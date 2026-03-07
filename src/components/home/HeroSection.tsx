@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { Download, Code, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-// 1. We changed the import here to grab your new mp4 file!
-import heroVideo from "@/assets/Home1.mp4"; 
+import heroVideo from "@/assets/Home1.mp4";
 
 export function HeroSection() {
   return (
@@ -12,12 +11,16 @@ export function HeroSection() {
       <div className="absolute inset-0 grid-background z-0" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-5">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        {/* 1. Updated the grid to a 12-column layout with a smaller gap for a tighter feel */}
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          
           {/* Text Content */}
+          {/* 2. assigned this column to span 5 out of 12 on large screens and added right padding */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.6 }}
+            className="lg:col-span-5 lg:pr-8"
           >
             <p className="text-accent font-bold text-sm tracking-widest uppercase mb-4">
               Created by Shaikh Ahmed Azad
@@ -79,15 +82,15 @@ export function HeroSection() {
             </p>
           </motion.div>
           
-          {/* Hero Video (Replaced Image) */}
+          {/* Hero Video (Larger and with Fade) */}
+          {/* 3. assigned this column to span 7 out of 12, added a negative right margin, and removed the rotation hover effect */}
           <motion.div 
             initial={{ opacity: 0, x: 30 }} 
             animate={{ opacity: 1, x: 0 }} 
             transition={{ duration: 0.6, delay: 0.2 }} 
-            className="relative"
+            className="lg:col-span-7 lg:-mr-16 relative"
           >
-            <div className="bg-background p-2 rounded-xl shadow-2xl border border-border hover:rotate-y-[-2deg] transition-transform duration-500">
-              {/* 2. We swapped the <img> for this <video> tag! */}
+            <div className="bg-background p-2 rounded-xl shadow-2xl border border-border">
               <video 
                 src={heroVideo} 
                 autoPlay 
@@ -98,36 +101,10 @@ export function HeroSection() {
               />
             </div>
             
-            {/* Floating Matrix Card */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              transition={{ duration: 0.6, delay: 0.5 }} 
-              className="absolute -bottom-5 -right-5 lg:right-0 bg-slate-800/95 backdrop-blur-sm text-cyan-400 p-4 rounded-xl shadow-2xl border border-slate-700 w-64 font-mono animate-float hidden md:block"
-            >
-              <div className="flex justify-between mb-3 text-slate-400 text-xs font-semibold">
-                <span>Matrix [k]</span>
-                <div className="flex gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-red-500" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-green-500" />
-                </div>
-              </div>
-              <div className="grid grid-cols-3 gap-2 text-xs">
-                <span className="text-sky-400">1.500e+9</span>
-                <span className="text-slate-600">0.000</span>
-                <span className="text-slate-600">0.000</span>
-                <span className="text-slate-600">0.000</span>
-                <span className="text-sky-400">1.721e+5</span>
-                <span className="text-slate-600">0.000</span>
-                <span className="text-slate-600">0.000</span>
-                <span className="text-slate-600">0.000</span>
-                <span className="text-sky-400">9.356e+5</span>
-              </div>
-              <p className="text-center text-slate-500 text-[10px] uppercase tracking-wider mt-3">
-                ... 12×12 Stiffness Matrix ...
-              </p>
-            </motion.div>
+            {/* 4. Added a radial gradient overlay to make the video fade into the background at the sides */}
+            <div className="absolute inset-0 z-20 pointer-events-none" style={{ background: 'radial-gradient(ellipse at center, transparent 40%, hsl(var(--background)) 100%)' }} />
+            
+            {/* 5. Removed the entire 'Floating Matrix Card' block from here */}
           </motion.div>
         </div>
       </div>
