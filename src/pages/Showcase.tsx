@@ -1,6 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { useEffect, useRef } from "react";
 import { Play } from "lucide-react";
+import lthaVideo from "@/assets/LTHA_animation.mp4";
 
 interface VideoCardProps {
   src: string;
@@ -90,6 +91,12 @@ const videos = [
     title: "Modal Analysis & Data Tables",
     description: "Animated mode shapes with corresponding modal data tables displaying frequencies, mass participation, and structural properties."
   },
+  // Here is the new local video!
+  {
+    src: lthaVideo, 
+    title: "Linear Time History Analysis - Earthquake Simulation (Modal Superposition)",
+    description: "Dynamic visualization of structural response to seismic ground motion, simulating real-time building sway using modal superposition."
+  }
 ];
 
 const Showcase = () => {
