@@ -2,24 +2,23 @@ import { motion } from "framer-motion";
 import { Download, Code, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import heroImage from "@/assets/hero-main.png";
+// 1. We changed the import here to grab your new mp4 file!
+import heroVideo from "@/assets/home1.mp4"; 
+
 export function HeroSection() {
-  return <header className="relative pt-20 pb-24 overflow-hidden">
+  return (
+    <header className="relative pt-20 pb-24 overflow-hidden">
       {/* Grid Background */}
       <div className="absolute inset-0 grid-background z-0" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-5">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
-          <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.6
-        }}>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.6 }}
+          >
             <p className="text-accent font-bold text-sm tracking-widest uppercase mb-4">
               Created by Shaikh Ahmed Azad
             </p>
@@ -80,32 +79,32 @@ export function HeroSection() {
             </p>
           </motion.div>
           
-          {/* Hero Image */}
-          <motion.div initial={{
-          opacity: 0,
-          x: 30
-        }} animate={{
-          opacity: 1,
-          x: 0
-        }} transition={{
-          duration: 0.6,
-          delay: 0.2
-        }} className="relative">
+          {/* Hero Video (Replaced Image) */}
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }} 
+            animate={{ opacity: 1, x: 0 }} 
+            transition={{ duration: 0.6, delay: 0.2 }} 
+            className="relative"
+          >
             <div className="bg-background p-2 rounded-xl shadow-2xl border border-border hover:rotate-y-[-2deg] transition-transform duration-500">
-              <img src={heroImage} alt="Open Civil Main Interface" className="w-full rounded-lg" />
+              {/* 2. We swapped the <img> for this <video> tag! */}
+              <video 
+                src={heroVideo} 
+                autoPlay 
+                loop 
+                muted 
+                playsInline 
+                className="w-full rounded-lg" 
+              />
             </div>
             
             {/* Floating Matrix Card */}
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6,
-            delay: 0.5
-          }} className="absolute -bottom-5 -right-5 lg:right-0 bg-slate-800/95 backdrop-blur-sm text-cyan-400 p-4 rounded-xl shadow-2xl border border-slate-700 w-64 font-mono animate-float hidden md:block">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ duration: 0.6, delay: 0.5 }} 
+              className="absolute -bottom-5 -right-5 lg:right-0 bg-slate-800/95 backdrop-blur-sm text-cyan-400 p-4 rounded-xl shadow-2xl border border-slate-700 w-64 font-mono animate-float hidden md:block"
+            >
               <div className="flex justify-between mb-3 text-slate-400 text-xs font-semibold">
                 <span>Matrix [k]</span>
                 <div className="flex gap-1.5">
@@ -132,5 +131,6 @@ export function HeroSection() {
           </motion.div>
         </div>
       </div>
-    </header>;
+    </header>
+  );
 }
