@@ -3,7 +3,7 @@ import { Download, Code, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 // 1. We changed the import here to grab your new mp4 file!
-import heroVideo from "@/assets/home1.mp4"; 
+import heroVideo from "@/assets/Home1.mp4"; 
 
 export function HeroSection() {
   return (
