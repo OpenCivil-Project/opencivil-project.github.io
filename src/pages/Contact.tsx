@@ -8,6 +8,14 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { toast } from "sonner";
 
+// ─────────────────────────────────────────────
+// 👇 REPLACE THESE WITH YOUR FORMSPREE FORM IDs
+// Sign up free at https://formspree.io
+// Create 2 forms and paste the IDs here:
+const CONTACT_FORM_ID = "mbdpjbgj";
+const WAITLIST_FORM_ID = "xdapojee";
+// ─────────────────────────────────────────────
+
 const Contact = () => {
   const [contactForm, setContactForm] = useState({ name: "", email: "", message: "" });
   const [waitlistEmail, setWaitlistEmail] = useState("");
@@ -17,25 +25,53 @@ const Contact = () => {
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsContactSubmitting(true);
-    
-    // TODO: Connect to Lovable Cloud database
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast.success("Message sent! I'll get back to you soon.");
-    setContactForm({ name: "", email: "", message: "" });
-    setIsContactSubmitting(false);
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${CONTACT_FORM_ID}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: contactForm.name,
+          email: contactForm.email,
+          message: contactForm.message,
+        }),
+      });
+
+      if (res.ok) {
+        toast.success("Message sent! I'll get back to you soon.");
+        setContactForm({ name: "", email: "", message: "" });
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+    } catch {
+      toast.error("Network error. Please check your connection.");
+    } finally {
+      setIsContactSubmitting(false);
+    }
   };
 
   const handleWaitlistSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsWaitlistSubmitting(true);
-    
-    // TODO: Connect to Lovable Cloud database
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast.success("You're on the waitlist! We'll notify you of updates.");
-    setWaitlistEmail("");
-    setIsWaitlistSubmitting(false);
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${WAITLIST_FORM_ID}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: waitlistEmail }),
+      });
+
+      if (res.ok) {
+        toast.success("You're on the waitlist! We'll notify you of updates.");
+        setWaitlistEmail("");
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+    } catch {
+      toast.error("Network error. Please check your connection.");
+    } finally {
+      setIsWaitlistSubmitting(false);
+    }
   };
 
   return (
