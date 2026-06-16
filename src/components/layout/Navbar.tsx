@@ -26,7 +26,7 @@ export function Navbar() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 font-extrabold text-xl text-foreground">
           <Box className="w-6 h-6 text-accent" />
-          <span>Open Civil</span>
+          <span>Open//Structures</span>
         </Link>
 
         {/* Desktop Nav Links */}
