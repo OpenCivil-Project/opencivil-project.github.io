@@ -43,7 +43,7 @@ export function HeroSection() {
             
             <p className="text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed">
               Bridging the gap between simplified 2D analysis and black-box commercial software.{" "}
-              <strong className="text-foreground">Open Civil</strong> provides a fully transparent
+              <strong className="text-foreground">Open//Structures</strong> provides a fully transparent
               workspace to model, visualize, and inspect the physics of 3D structures.
             </p>
             

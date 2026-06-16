@@ -117,7 +117,7 @@ export function DataFormatSection() {
         >
           <h2 className="text-4xl font-extrabold mb-4">Human-Readable Data Format</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            No proprietary binary blobs. Open Civil uses simple, transparent JSON files (.mf) that you can read, edit, or generate with Python scripts.
+            No proprietary binary blobs. Open//Structures uses simple, transparent JSON files (.mf) that you can read, edit, or generate with Python scripts.
           </p>
         </motion.div>
 

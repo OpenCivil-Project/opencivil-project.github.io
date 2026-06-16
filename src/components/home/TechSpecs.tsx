@@ -33,7 +33,7 @@ export function TechSpecs() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Why OpenCivil?</h2>
+          <h2 className="text-3xl font-bold mb-4">Why Open//Structures?</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Built for students and engineers who want to truly understand structural behavior.
           </p>

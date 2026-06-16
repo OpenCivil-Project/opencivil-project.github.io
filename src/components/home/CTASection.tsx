@@ -25,7 +25,7 @@ export function CTASection() {
           <div>
             <h2 className="text-3xl lg:text-4xl font-extrabold mb-4 text-secondary-foreground">Ready to start analyzing?</h2>
             <p className="text-primary-foreground/70 text-lg mb-6">
-              Open Civil is open-source and free to use. Contribute to the project or use it for your research.
+              Open//Structures is open-source and free to use. Contribute to the project or use it for your research.
             </p>
             
             <div className="bg-black/30 p-4 rounded-lg border border-white/10 flex justify-between items-center mb-8 font-mono text-sm">
