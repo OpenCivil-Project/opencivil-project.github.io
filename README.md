@@ -1,6 +1,6 @@
-# Open Civil
+# Open//Structures
 
-Open Civil is a free, educational structural analysis software designed to bridge the gap between simplified 2D textbook problems and complex commercial "black box" software. 
+Open//Structures is a free, educational structural analysis software designed to bridge the gap between simplified 2D textbook problems and complex commercial "black box" software. 
 
 It provides a **fully transparent workspace** where students can model 3D structures, visualize internal forces, and inspect the underlying mathematical matrices (Stiffness, Transformation, etc.) in real-time.
 
