@@ -74,7 +74,7 @@ const videos = [
   {
     src: `${SUPABASE_URL}/storage/v1/object/public/videos/Deformed%20Shape%20and%20Animation2.mp4`,
     title: "General Interface Overview",
-    description: "Explore OpenCivil's intuitive interface for structural modeling, analysis setup, and real-time visualization controls."
+    description: "Explore Open//Structures' intuitive interface for structural modeling, analysis setup, and real-time visualization controls."
   },
   {
     src: `${SUPABASE_URL}/storage/v1/object/public/videos/Deformed%20Shape%20and%20Animation.mp4`,
@@ -110,11 +110,11 @@ const Showcase = () => {
               Showcase
             </span>
             <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4">
-              See OpenCivil in Action
+              See Open//Structures in Action
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Watch real-time structural analysis demonstrations, deformed shape animations, 
-              and solver visualizations powered by OpenCivil's FEA engine.
+              and solver visualizations powered by Open//Structures' FEA engine.
             </p>
           </div>
 

@@ -45,7 +45,7 @@ It provides a **fully transparent workspace** where students can model 3D struct
 
 The source code is currently private while in development. This repository hosts the official website.
 
-**[Download the latest .exe here](https://github.com/OpenCivil-Project/OpenCivil/releases/latest)**
+**[Download the latest .exe here](https://github.com/OpenCivil-Project/Open-Structures/releases/latest)**
 
 ## Usage Guide
 
@@ -60,7 +60,7 @@ The source code is currently private while in development. This repository hosts
 
 This is a student project created for educational purposes. 
 
-If you find a bug or have a suggestion, please **[Open an Issue](https://github.com/OpenCivil-Project/OpenCivil/issues)** in this repository.
+If you find a bug or have a suggestion, please **[Open an Issue](https://github.com/OpenCivil-Project/Open-Structres/issues)** in this repository.
 
 ## Author
 

@@ -20,7 +20,7 @@ const skills = [
 
 const projects = [
   {
-    title: "OpenCivil: Structural Analysis Software",
+    title: "Open//Structures: Structural Analysis Software",
     role: "Sole Developer",
     year: "2024 – Present",
     description:
