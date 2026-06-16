@@ -10,7 +10,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center gap-2.5 font-extrabold text-xl text-foreground mb-4">
               <Box className="w-6 h-6 text-accent" />
-              <span>Open Civil</span>
+              <span>Open//Structures</span>
             </Link>
             <p className="text-muted-foreground text-sm max-w-md">
               An open-source, educational structural analysis software bridging the gap between textbook problems and commercial software.
