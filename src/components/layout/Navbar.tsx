@@ -1,82 +1,60 @@
 import { Link, useLocation } from "react-router-dom";
-import { Box, Github, Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
-const navLinks = [{
-  href: "/",
-  label: "Home"
-}, {
-  href: "/features",
-  label: "Features"
-}, {
-  href: "/showcase",
-  label: "Showcase"
-}, {
-  href: "/about",
-  label: "About"
-}, {
-  href: "/contact",
-  label: "Contact"
-}];
+import { ArrowUpRight, Box, Github, Menu, Moon, Sun, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+import { SITE } from "@/data/site";
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/features", label: "Features" },
+  { href: "/showcase", label: "Implementation" },
+  { href: "/about", label: "Developer" },
+  { href: "/contact", label: "Contact" },
+];
+
 export function Navbar() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  return <nav className="fixed top-0 w-full bg-background/90 backdrop-blur-xl z-50 border-b border-border">
-      <div className="max-w-7xl mx-auto px-5 h-[72px] flex justify-between items-center">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5 font-extrabold text-xl text-foreground">
-          <Box className="w-6 h-6 text-accent" />
-          <span>Open//Structures</span>
+  const { resolvedTheme, setTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
+  useEffect(() => setMobileMenuOpen(false), [location.pathname]);
+  const themeButton = (
+    <button onClick={() => setTheme(isDark ? "light" : "dark")}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
+      {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+    </button>
+  );
+  return (
+    <nav aria-label="Main navigation" className="fixed top-0 z-50 w-full border-b border-border bg-background/90 backdrop-blur-xl">
+      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-5 px-5 lg:px-8">
+        <Link to="/" aria-label="Open Civil home" className="flex items-center gap-2.5 text-xl font-bold tracking-tight">
+          <span className="flex h-8 w-8 items-center justify-center text-accent"><Box className="h-6 w-6" strokeWidth={1.7} /></span>
+          <span>Open Civil</span>
         </Link>
-
-        {/* Desktop Nav Links */}
-        <ul className="hidden md:flex gap-8 list-none">
-          {navLinks.map(link => <li key={link.href}>
-              <Link to={link.href} className={`text-[0.95rem] font-medium transition-colors ${location.pathname === link.href ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}>
-                {link.label}
-              </Link>
-            </li>)}
+        <ul className="hidden items-center gap-6 text-sm lg:flex">
+          {navLinks.map(link => (
+            <li key={link.href}><Link to={link.href} aria-current={location.pathname === link.href ? "page" : undefined}
+              className={location.pathname === link.href ? "font-semibold text-foreground" : "text-muted-foreground transition-colors hover:text-foreground"}>{link.label}</Link></li>
+          ))}
         </ul>
-
-        {/* Desktop Actions */}
-        <div className="hidden md:flex gap-5 items-center">
-          <a href="https://github.com/ShaikhAhmedAzad/OpenCivil" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-secondary-foreground font-semibold hover:text-foreground transition-colors opacity-80">
-            <Github className="w-5 h-5" />
-            GitHub
-          </a>
-          <Button asChild>
-            <a href="https://github.com/ShaikhAhmedAzad/OpenCivil/releases/latest" target="_blank" rel="noopener noreferrer">
-              Download v0.651
-            </a>
-          </Button>
+        <div className="flex items-center gap-3">
+          {themeButton}
+          <a href={SITE.organization} target="_blank" rel="noopener noreferrer" aria-label="Open Civil on GitHub" className="hidden p-2 text-muted-foreground hover:text-foreground lg:block"><Github className="h-5 w-5" /></a>
+          <a href={SITE.download} target="_blank" rel="noopener noreferrer" className="hidden items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-xs font-semibold text-primary-foreground transition-opacity hover:opacity-80 lg:flex">Get Open Structures <ArrowUpRight className="h-3.5 w-3.5" /></a>
+          <button className="p-2 lg:hidden" aria-label={mobileMenuOpen ? "Close menu" : "Open menu"} aria-expanded={mobileMenuOpen} aria-controls="mobile-navigation" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
-
-        {/* Mobile Menu Button */}
-        <button className="md:hidden p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
       </div>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && <div className="md:hidden bg-background border-b border-border px-5 py-4">
-          <ul className="flex flex-col gap-4">
-            {navLinks.map(link => <li key={link.href}>
-                <Link to={link.href} onClick={() => setMobileMenuOpen(false)} className={`block text-base font-medium ${location.pathname === link.href ? "text-foreground" : "text-muted-foreground"}`}>
-                  {link.label}
-                </Link>
-              </li>)}
+      {mobileMenuOpen && (
+        <div id="mobile-navigation" className="border-t border-border bg-background px-5 py-5 lg:hidden">
+          <ul className="space-y-4">
+            {navLinks.map(link => <li key={link.href}><Link to={link.href} onClick={() => setMobileMenuOpen(false)} aria-current={location.pathname === link.href ? "page" : undefined} className="block text-sm">{link.label}</Link></li>)}
           </ul>
-          <div className="mt-4 flex flex-col gap-3">
-            <a href="https://github.com/ShaikhAhmedAzad/OpenCivil" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground font-semibold">
-              <Github className="w-5 h-5" />
-              GitHub
-            </a>
-            <Button asChild className="w-full">
-              <a href="https://github.com/ShaikhAhmedAzad/OpenCivil/releases/latest" target="_blank" rel="noopener noreferrer">
-                Download v0.651
-              </a>
-            </Button>
-          </div>
-        </div>}
-    </nav>;
+          <a href={SITE.download} target="_blank" rel="noopener noreferrer" className="mt-5 flex items-center justify-between rounded-lg bg-primary p-3 text-sm font-semibold text-primary-foreground">Get Open Structures <ArrowUpRight className="h-4 w-4" /></a>
+        </div>
+      )}
+    </nav>
+  );
 }

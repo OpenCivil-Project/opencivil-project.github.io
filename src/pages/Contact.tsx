@@ -86,7 +86,7 @@ const Contact = () => {
           >
             <h1 className="text-5xl font-extrabold mb-4">Get in Touch</h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Have questions about Open//Structures? Want to collaborate on structural engineering research? I'd love to hear from you.
+              Have questions about Open Structures? Want to collaborate on structural engineering research? I'd love to hear from you.
             </p>
           </motion.div>
 
@@ -155,16 +155,13 @@ const Contact = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="bg-primary text-primary-foreground rounded-2xl p-8"
-                style={{
-                  backgroundImage: "radial-gradient(circle at top right, hsl(217 33% 17%) 0%, hsl(var(--primary)) 60%)",
-                }}
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
                     <Rocket className="w-6 h-6" />
                   </div>
                   <div>
-                    <h2 className="text-xl font-bold">Join the Waitlist</h2>
+                    <h2 className="text-xl font-bold text-primary-foreground">Join the Waitlist</h2>
                     <p className="text-sm text-primary-foreground/70">Get notified about updates & new features</p>
                   </div>
                 </div>
@@ -176,9 +173,10 @@ const Contact = () => {
                     value={waitlistEmail}
                     onChange={(e) => setWaitlistEmail(e.target.value)}
                     required
-                    className="bg-white/10 border-white/20 text-primary-foreground placeholder:text-primary-foreground/50"
+                    aria-label="Email address for the waitlist"
+                    className="bg-background/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60"
                   />
-                  <Button type="submit" variant="secondary" className="bg-white text-primary hover:bg-white/90" disabled={isWaitlistSubmitting}>
+                  <Button type="submit" variant="secondary" className="bg-background text-foreground hover:bg-background/90" disabled={isWaitlistSubmitting}>
                     {isWaitlistSubmitting ? "..." : "Join"}
                   </Button>
                 </form>
@@ -215,7 +213,7 @@ const Contact = () => {
                     <span>Ankara, Turkey</span>
                   </div>
                   <a
-                    href="https://github.com/ShaikhAhmedAzad/OpenCivil"
+                    href="https://github.com/OpenCivil-Project/Open-Structures"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-4 text-muted-foreground hover:text-foreground transition-colors"
@@ -223,7 +221,7 @@ const Contact = () => {
                     <div className="w-10 h-10 bg-accent/10 text-accent rounded-lg flex items-center justify-center">
                       <Github className="w-5 h-5" />
                     </div>
-                    <span>github.com/ShaikhAhmedAzad/OpenCivil</span>
+                    <span>github.com/OpenCivil-Project/Open-Structures</span>
                   </a>
                 </div>
               </motion.div>

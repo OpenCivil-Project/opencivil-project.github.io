@@ -1,64 +1,37 @@
 import { Link } from "react-router-dom";
 import { Box, Github, Linkedin, Mail } from "lucide-react";
+import { SITE } from "@/data/site";
 
 export function Footer() {
   return (
-    <footer className="py-12 bg-background border-t border-border">
-      <div className="max-w-7xl mx-auto px-5">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
-          {/* Brand */}
+    <footer className="border-t border-border bg-background py-12">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="mb-10 grid gap-8 md:grid-cols-4">
           <div className="md:col-span-2">
-            <Link to="/" className="flex items-center gap-2.5 font-extrabold text-xl text-foreground mb-4">
-              <Box className="w-6 h-6 text-accent" />
-              <span>Open//Structures</span>
-            </Link>
-            <p className="text-muted-foreground text-sm max-w-md">
-              An open-source, educational structural analysis software bridging the gap between textbook problems and commercial software.
-            </p>
+            <Link to="/" className="mb-4 flex items-center gap-2.5 text-xl font-bold"><Box className="h-5 w-5 text-accent" /><span>Open Civil</span></Link>
+            <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">Open tools for civil engineering, learning, and research. Home of Open Structures.</p>
           </div>
-
-          {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4 text-sm">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link to="/features" className="text-muted-foreground hover:text-foreground transition-colors">Features</Link></li>
-              <li><Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">About</Link></li>
-              <li><Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</Link></li>
+            <h4 className="mb-4 text-sm font-semibold">Explore</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li><Link to="/features" className="hover:text-foreground">Open Structures</Link></li>
+              <li><Link to="/showcase" className="hover:text-foreground">Implementation</Link></li>
+              <li><Link to="/about" className="hover:text-foreground">Developer & CV</Link></li>
+              <li><Link to="/contact" className="hover:text-foreground">Contact</Link></li>
             </ul>
           </div>
-
-          {/* Connect */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4 text-sm">Connect</h4>
+            <h4 className="mb-4 text-sm font-semibold">Connect</h4>
             <div className="flex gap-4">
-              <a
-                href="https://github.com/ShaikhAhmedAzad/OpenCivil"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-              <a
-                href="mailto:ahmed.azad@metu.edu.tr"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
+              <a href={SITE.organization} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-foreground"><Github className="h-5 w-5" /></a>
+              <a href="mailto:ahmed.azad@metu.edu.tr" aria-label="Email Shaikh Ahmed Azad" className="text-muted-foreground hover:text-foreground"><Mail className="h-5 w-5" /></a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-foreground"><Linkedin className="h-5 w-5" /></a>
             </div>
           </div>
         </div>
-
-        <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
+        <div className="flex flex-col justify-between gap-4 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
           <p>© {new Date().getFullYear()} Open Civil. Created by Shaikh Ahmed Azad.</p>
+          <div className="flex gap-5"><Link to="/privacy-policy" className="hover:text-foreground">Privacy Policy</Link><Link to="/terms" className="hover:text-foreground">Terms of Service</Link></div>
         </div>
       </div>
     </footer>

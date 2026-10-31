@@ -3,6 +3,9 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HashRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "next-themes";
+import { MotionConfig } from "framer-motion";
+import { RouteEffects } from "./components/RouteEffects";
 import Index from "./pages/Index";
 import Features from "./pages/Features";
 import About from "./pages/About";
@@ -15,11 +18,14 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 const App = () => (
+  <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+  <MotionConfig reducedMotion="user">
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <HashRouter>
+        <RouteEffects />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/features" element={<Features />} />
@@ -34,6 +40,8 @@ const App = () => (
       </HashRouter>
     </TooltipProvider>
   </QueryClientProvider>
+  </MotionConfig>
+  </ThemeProvider>
 );
 
 export default App;

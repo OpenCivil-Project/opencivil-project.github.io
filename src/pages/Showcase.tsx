@@ -1,145 +1,70 @@
 import { Layout } from "@/components/layout/Layout";
-import { useEffect, useRef } from "react";
-import { Play } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
+import { MediaFrame } from "@/components/MediaFrame";
+import { implementationMedia } from "@/data/media";
+import homeVideo from "@/assets/Home1.mp4";
 import lthaVideo from "@/assets/LTHA_animation.mp4";
-
-interface VideoCardProps {
-  src: string;
-  title: string;
-  description: string;
-}
-
-function VideoCard({ src, title, description }: VideoCardProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    const container = containerRef.current;
-    if (!video || !container) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            video.play().catch(() => {
-              // Autoplay blocked - user interaction required
-            });
-          } else {
-            video.pause();
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    observer.observe(container);
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div 
-      ref={containerRef}
-      className="group relative bg-card rounded-2xl overflow-hidden border border-border shadow-xl hover:shadow-2xl transition-shadow duration-300"
-    >
-      <div className="relative aspect-[16/10] bg-slate-900">
-        <video
-          ref={videoRef}
-          src={src}
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="flex items-center gap-2 text-white/80 text-sm">
-            <Play className="w-4 h-4" />
-            <span>Auto-playing</span>
-          </div>
-        </div>
-      </div>
-      <div className="p-5">
-        <h3 className="text-lg font-bold text-foreground mb-2">{title}</h3>
-        <p className="text-muted-foreground text-sm">{description}</p>
-      </div>
-    </div>
-  );
-}
+import heroImage from "@/assets/hero-main.png";
+import feature3 from "@/assets/feature-3.png";
 
 const SUPABASE_URL = "https://zizmttgmketyuoerainb.supabase.co";
 
 const videos = [
-  {
-    src: `${SUPABASE_URL}/storage/v1/object/public/videos/Deformed%20Shape%20and%20Animation2.mp4`,
-    title: "General Interface Overview",
-    description: "Explore Open//Structures' intuitive interface for structural modeling, analysis setup, and real-time visualization controls."
-  },
-  {
-    src: `${SUPABASE_URL}/storage/v1/object/public/videos/Deformed%20Shape%20and%20Animation.mp4`,
-    title: "Deformed Shape Animation",
-    description: "Visualization of structural deformation under applied loads, showing displacement magnification for clarity."
-  },
-  {
-    src: `${SUPABASE_URL}/storage/v1/object/public/videos/Modal%20Analysis%20Animation.mp4`,
-    title: "Modal Analysis Animation",
-    description: "Dynamic modal analysis showing natural frequencies and mode shapes of the structural system."
-  },
-  {
-    src: `${SUPABASE_URL}/storage/v1/object/public/videos/Modal%20Analysis%20and%20%20Modal%20Table.mp4`,
-    title: "Modal Analysis & Data Tables",
-    description: "Animated mode shapes with corresponding modal data tables displaying frequencies, mass participation, and structural properties."
-  },
-  // Here is the new local video!
-  {
-    src: lthaVideo, 
-    title: "Linear Time History Analysis - Earthquake Simulation (Modal Superposition)",
-    description: "Dynamic visualization of structural response to seismic ground motion, simulating real-time building sway using modal superposition."
-  }
+  { src: homeVideo, title: "Desktop modeling workflow", description: "A recording of the Open Structures desktop workspace.", poster: heroImage },
+  { src: `${SUPABASE_URL}/storage/v1/object/public/videos/Deformed%20Shape%20and%20Animation2.mp4`, title: "Interface overview", description: "Model setup and visualization controls.", poster: heroImage },
+  { src: `${SUPABASE_URL}/storage/v1/object/public/videos/Deformed%20Shape%20and%20Animation.mp4`, title: "Deformed shape animation", description: "Structural displacement under applied loads, magnified for visibility.", poster: feature3 },
+  { src: `${SUPABASE_URL}/storage/v1/object/public/videos/Modal%20Analysis%20Animation.mp4`, title: "Modal analysis animation", description: "Vibration mode shapes from a modal analysis.", poster: feature3 },
+  { src: `${SUPABASE_URL}/storage/v1/object/public/videos/Modal%20Analysis%20and%20%20Modal%20Table.mp4`, title: "Modal results & data tables", description: "Mode shapes with frequencies and modal mass participation data.", poster: heroImage },
+  { src: lthaVideo, title: "Linear time history analysis", description: "Structural response to earthquake ground motion using modal superposition.", poster: feature3 },
 ];
 
-const Showcase = () => {
-  return (
-    <Layout>
-      <section className="py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-5">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-semibold rounded-full mb-4">
-              Showcase
-            </span>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4">
-              See Open//Structures in Action
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Watch real-time structural analysis demonstrations, deformed shape animations, 
-              and solver visualizations powered by Open//Structures' FEA engine.
-            </p>
-          </div>
-
-          {/* Video Grid - 2 columns */}
-          <div className="grid gap-8 md:grid-cols-2 max-w-7xl mx-auto">
-            {videos.map((video, index) => (
-              <VideoCard
-                key={index}
-                src={video.src}
-                title={video.title}
-                description={video.description}
-              />
-            ))}
-          </div>
-
-          {/* Active Development Notice */}
-          <div className="mt-12 text-center">
-            <p className="text-muted-foreground text-sm">
-              More demonstrations coming soon... Actively being developed
-            </p>
-          </div>
+const Showcase = () => (
+  <Layout>
+    <section className="border-b border-border py-14 md:py-20">
+      <div className="max-w-7xl mx-auto px-5">
+        <Reveal className="max-w-3xl">
+          <p className="section-label mb-4">Open Civil / Open Structures</p>
+          <h1 className="text-4xl md:text-5xl leading-tight mb-5">Implementation & demonstrations</h1>
+          <p className="text-lg text-muted-foreground leading-relaxed">Recordings of the modeling interface, deformed shapes, and analysis results. Use the video controls to play each demonstration.</p>
+        </Reveal>
+      </div>
+    </section>
+    <section className="py-14 md:py-20">
+      <div className="max-w-7xl mx-auto px-5">
+        <Reveal className="mb-8"><h2 className="text-2xl md:text-3xl">Application recordings</h2></Reveal>
+        <div className="grid md:grid-cols-2 gap-6">
+          {videos.map((video, index) => (
+            <Reveal key={video.title} delay={(index % 2) * 0.05} className="h-full">
+              <article className="border border-border rounded-xl bg-card overflow-hidden h-full">
+                <MediaFrame kind="video" src={video.src} title={video.title} poster={video.poster} className="rounded-none border-0" />
+                <div className="p-5 border-t border-border">
+                  <h3 className="text-lg mb-2">{video.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{video.description}</p>
+                </div>
+              </article>
+            </Reveal>
+          ))}
         </div>
-      </section>
-    </Layout>
-  );
-};
+      </div>
+    </section>
+    <section className="bg-muted/30 border-y border-border py-14 md:py-20">
+      <div className="max-w-7xl mx-auto px-5">
+        <Reveal className="max-w-3xl mb-8">
+          <h2 className="text-2xl md:text-3xl mb-4">Additional media</h2>
+          <p className="text-muted-foreground leading-relaxed">Reserved spaces for implementation screenshots and walkthroughs to be added later.</p>
+        </Reveal>
+        <div className="grid md:grid-cols-2 gap-6">
+          <Reveal><MediaFrame kind="image" title="Implementation screenshot" src={implementationMedia.model.src} /></Reveal>
+          <Reveal delay={0.05}><MediaFrame kind="video" title="Implementation walkthrough" src={implementationMedia.walkthrough.src} /></Reveal>
+        </div>
+      </div>
+    </section>
+    <section className="py-10">
+      <Reveal className="max-w-7xl mx-auto px-5">
+        <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl">OpenSees integration is a <strong className="text-foreground">Work in Progress</strong>. Sorry in advance that not everything is perfect yet; active integration and validation are ongoing.</p>
+      </Reveal>
+    </section>
+  </Layout>
+);
 
 export default Showcase;

@@ -1,111 +1,41 @@
-import { motion } from "framer-motion";
-import { Download, Code, Github } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import heroVideo from "@/assets/Home1.mp4";
+import { Link } from "react-router-dom";
+import { ArrowDown, ArrowRight, ArrowUpRight, Box, Code2 } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
+import { SITE } from "@/data/site";
+import heroImage from "@/assets/hero-main.png";
 
 export function HeroSection() {
   return (
-    <header className="relative pt-20 pb-24 overflow-hidden">
-      {/* Grid Background */}
-      <div className="absolute inset-0 grid-background z-0" />
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-5">
-        {/* 1. Updated the grid to a 12-column layout with a smaller gap for a tighter feel */}
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Text Content */}
-          {/* 2. assigned this column to span 5 out of 12 on large screens and added right padding */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5 lg:pr-8"
-          >
-            <p className="text-accent font-bold text-sm tracking-widest uppercase mb-4">
-              Created by Shaikh Ahmed Azad
-            </p>
-            
-            <div className="flex gap-2.5 mb-6">
-              <Badge variant="secondary" className="bg-sky-100 text-sky-700 hover:bg-sky-100">
-                Student Project
-              </Badge>
-              <Badge variant="secondary" className="bg-amber-100 text-amber-700 hover:bg-amber-100">
-                Open Source
-              </Badge>
+    <header className="relative overflow-hidden border-b border-border">
+      <div className="hero-grid absolute inset-0 pointer-events-none" aria-hidden="true" />
+      <div className="section-shell relative pb-12 pt-16 lg:pb-16 lg:pt-24">
+        <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.15fr] lg:gap-14">
+          <Reveal>
+            <p className="section-label mb-5">OPEN CIVIL / FLAGSHIP APPLICATION</p>
+            <h1 className="mb-5 text-5xl font-bold leading-[1.08] tracking-tight lg:text-6xl">Open Structures</h1>
+            <p className="mb-5 text-xl leading-snug text-foreground lg:text-2xl">3D structural analysis for learning and research.</p>
+            <p className="mb-8 max-w-lg text-base leading-relaxed text-muted-foreground">Model structures, run static and dynamic analyses, and inspect the matrices, forces, and deformations behind the results. Open Structures is the current flagship application from Open Civil.</p>
+            <div className="flex flex-wrap gap-3">
+              <a href={SITE.download} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5">Get Open Structures <ArrowUpRight className="h-4 w-4" /></a>
+              <Link to="/features" className="inline-flex items-center gap-3 rounded-lg border border-border bg-background px-5 py-3 text-sm font-semibold transition-colors hover:bg-muted">Explore features <ArrowRight className="h-4 w-4" /></Link>
             </div>
-            
-            <h1 className="text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-6">
-              Structural Analysis.
-              <br />
-              <span className="text-gradient opacity-80">Transparent.</span>
-            </h1>
-            
-            <p className="text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed">
-              Bridging the gap between simplified 2D analysis and black-box commercial software.{" "}
-              <strong className="text-foreground">Open//Structures</strong> provides a fully transparent
-              workspace to model, visualize, and inspect the physics of 3D structures.
-            </p>
-            
-            <div className="flex flex-wrap gap-4 mb-10">
-              <Button size="lg" asChild>
-                <a href="https://github.com/ShaikhAhmedAzad/OpenCivil/releases/latest" target="_blank" rel="noopener noreferrer">
-                  <Download className="w-5 h-5 mr-2" />
-                  Download for Windows
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <a href="https://github.com/ShaikhAhmedAzad/OpenCivil" target="_blank" rel="noopener noreferrer">
-                  <Code className="w-5 h-5 mr-2" />
-                  View Source
-                </a>
-              </Button>
+            <p className="mt-5 text-xs text-muted-foreground">Created by Shaikh Ahmed Azad · Built for learning & research</p>
+          </Reveal>
+          <Reveal delay={0.15} className="relative">
+            <div className="overflow-hidden rounded-xl border border-border bg-card shadow-[0_18px_60px_-25px_rgba(15,23,42,0.3)]">
+              <div className="flex items-center justify-between border-b border-border px-4 py-3">
+                <div className="flex items-center gap-2 text-xs font-medium"><Box className="h-4 w-4 text-accent" />Open Structures</div>
+                <span className="font-mono text-[10px] text-muted-foreground">MODEL / ANALYZE / INSPECT</span>
+              </div>
+              <img src={heroImage} width="1365" height="718" alt="Open Structures desktop workspace displaying a three-dimensional structural frame with loads and supports" className="block w-full" loading="eager" />
+              <div className="flex items-center justify-between border-t border-border px-4 py-3 text-[11px] text-muted-foreground"><span className="inline-flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />An inspectable analysis workspace</span><Code2 className="h-4 w-4" /></div>
             </div>
-            
-            <div className="flex flex-wrap gap-6 text-sm text-muted-foreground font-semibold">
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-green-500" />
-                Python 3.10+
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-blue-500" />
-                PyQt6 & OpenGL
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-yellow-500" />
-                Custom Solver
-              </span>
-            </div>
-            
-            <p className="text-xs text-muted-foreground italic mt-5">
-              * Note: This is an educational project for learning and experimenting. Not intended for professional commercial use.
-            </p>
-          </motion.div>
-          
-          {/* Hero Video (Larger and with Fade) */}
-          {/* 3. assigned this column to span 7 out of 12, added a negative right margin, and removed the rotation hover effect */}
-          <motion.div 
-            initial={{ opacity: 0, x: 30 }} 
-            animate={{ opacity: 1, x: 0 }} 
-            transition={{ duration: 0.6, delay: 0.2 }} 
-            className="lg:col-span-7 lg:-mr-16 relative"
-          >
-            <div className="bg-background p-2 rounded-xl shadow-2xl border border-border">
-              <video 
-                src={heroVideo} 
-                autoPlay 
-                loop 
-                muted 
-                playsInline 
-                className="w-full rounded-lg" 
-              />
-            </div>
-            
-            {/* 4. Added a radial gradient overlay to make the video fade into the background at the sides */}
-            <div className="absolute inset-0 z-20 pointer-events-none" style={{ background: 'radial-gradient(ellipse at center, transparent 40%, hsl(var(--background)) 100%)' }} />
-            
-            {/* 5. Removed the entire 'Floating Matrix Card' block from here */}
-          </motion.div>
+            <div className="mt-4 flex justify-end"><Link to="/showcase" className="inline-flex items-center gap-2 font-mono text-xs text-muted-foreground hover:text-foreground">See the implementation <ArrowRight className="h-3.5 w-3.5" /></Link></div>
+          </Reveal>
+        </div>
+        <div className="mt-14 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6">
+          <div className="flex flex-wrap gap-x-7 gap-y-3 text-xs text-muted-foreground"><span>Static & dynamic analysis</span><span>Interactive 3D modeling</span><span>Matrix inspection</span></div>
+          <a href="#projects" onClick={(event) => { event.preventDefault(); document.getElementById("projects")?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" }); }} className="inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground">Explore Open Civil <ArrowDown className="h-3.5 w-3.5" /></a>
         </div>
       </div>
     </header>

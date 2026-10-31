@@ -1,68 +1,56 @@
-# Open//Structures
+# Open Civil website
 
-Open//Structures is a free, educational structural analysis software designed to bridge the gap between simplified 2D textbook problems and complex commercial "black box" software. 
+Open Civil is the organization behind Open Structures, our flagship structural analysis application. Open Seismic is Coming Soon.
 
-It provides a **fully transparent workspace** where students can model 3D structures, visualize internal forces, and inspect the underlying mathematical matrices (Stiffness, Transformation, etc.) in real-time.
+This repository contains the website only. The application repository is separate.
 
-## Screenshots
+## Local development
 
-| 3D Modeling | Analysis Results |
-|:---:|:---:|
-| <img src="images/hero-main.png" width="400"> | <img src="images/feature-3.png" width="400"> |
-| *Real-time 3D Extrusions* | *Nodal deformations & Fixed end forces* |
+Install Node.js 22, then run:
 
-## Key Features
+```sh
+npm ci
+npm run dev
+```
 
-* **Educational "Glass Box" Engine**:
-    * View the raw **12x12 Stiffness Matrix [k]** for any element.
-    * Inspect **Transformation Matrices [T]** and Fixed End Force vectors.
-    * Trace the solver's logic step-by-step.
+Production checks:
 
-* **Advanced Structural Modeling**:
-    * Full **3D Timoshenko Beam Theory** (Shear Deformation).
-    * **Rigid End Offsets** & Cardinal Insertion Points.
-    * **Member Releases** (Moment/Shear) using static condensation.
+```sh
+npm run build
+npx tsc --noEmit -p tsconfig.app.json
+npm run lint
+npm run preview
+```
 
-* **Interactive Visualization**:
-    * Fast OpenGL rendering (Arcball rotation, Pan, Zoom).
-    * True-to-scale extruded shapes (I-Beams, T-Beams, Rectangular).
-    * Visual "Matrix Spy" tool for debugging models.
+## GitHub Pages deployment
 
-* **Transparent Data**:
-    * Saves projects as human-readable **JSON (.mf)** files.
-    * Easy to parse with Python, MATLAB, or Excel for research.
+The canonical website is https://opencivil-project.github.io/ and its repository is OpenCivil-Project/opencivil-project.github.io. This is an organization site, so Vite's base is /.
 
-## Tech Stack (Software Core)
+In GitHub, Settings → Pages → Build and deployment must use **GitHub Actions**. The workflow builds on pushes to main and can also be run manually. It installs the locked dependencies, builds dist/, verifies the entry points, and deploys that artifact through the github-pages environment. Never publish the raw Vite source tree as the website: the source index.html needs the production build.
 
-* **Language**: Python 3.10+
-* **GUI Framework**: PyQt6
-* **Graphics**: PyOpenGL / PyQtGraph
-* **Math Kernel**: NumPy & SciPy (Sparse Linear Algebra)
+The application uses HashRouter. Links such as /#/features work on static hosting without server rewrites. The production build also emits static entry points for /features/, /showcase/, /about/, /contact/, /privacy-policy/, and /terms/ so bookmarked plain URLs load instead of showing GitHub's file-not-found page. public/404.html recovers other paths into the app's router, where unknown routes show the application's 404 page. public/.nojekyll is copied into the production artifact.
 
-## Installation & Setup
+The root index.html, CV, and Google verification file are included in the generated site. Keep public/ShaikhAhmedAzad_CV.pdf at its current path for the developer page.
 
-### 📥 Download Installer (Windows)
+## Add your final images and videos
 
-The source code is currently private while in development. This repository hosts the official website.
+The home and Implementation pages share two prepared 16:9 slots. Copy your files into public/media/, then set the matching URLs in src/data/media.ts:
 
-**[Download the latest .exe here](https://github.com/OpenCivil-Project/Open-Structures/releases/latest)**
+```ts
+export const implementationMedia = {
+  model: { src: "/media/implementation-model.png" },
+  walkthrough: { src: "/media/implementation-walkthrough.mp4" },
+};
+```
 
-## Usage Guide
+Recommended media: 1920 × 1080 PNG/WebP images and H.264 MP4 videos. Empty URLs display the designed placeholders without requesting missing files. Images fit without cropping; videos use native controls and do not autoplay. Existing demonstration videos and comparison screenshots remain available.
 
-1. **Define Grid**: Start a new model and define your X/Y/Z grid lines.
-2. **Materials & Sections**: Go to Define > Section Properties to create I-beams or Concrete Rectangles.
-3. **Draw**: Use the Draw Frame tool to click-and-drag beams between grid points.
-4. **Assign**: Select members to assign Loads, Releases, or Supports.
-5. **Analyze**: Press F5 or go to Analyze > Run Analysis.
-6. **Inspect**: Right-click any element to see its "Matrix Spy" or Free Body Diagram.
+## Content and project links
 
-## 🤝 Feedback & Support
+- Organization: https://github.com/OpenCivil-Project
+- Open Structures: https://github.com/OpenCivil-Project/Open-Structures
+- Current installer: https://github.com/OpenCivil-Project/Open-Structures/releases/latest
 
-This is a student project created for educational purposes. 
+Feature descriptions reflect the application structure and project documentation. OpenSees integration and advanced nonlinear workflows are explicitly a Work in Progress, with active integration and refinement ongoing. The developer biography and CV are preserved.
 
-If you find a bug or have a suggestion, please **[Open an Issue](https://github.com/OpenCivil-Project/Open-Structres/issues)** in this repository.
-
-## Author
-
-**Shaikh Ahmed Azad** Civil Engineering Student | METU  
-[GitHub Profile](https://github.com/ShaikhAhmedAzad)
+Scroll reveals respect reduced-motion preferences. The light/dark toggle follows the system preference initially and saves the visitor's selection locally.

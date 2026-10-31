@@ -7,7 +7,7 @@ export default function PrivacyPolicy() {
       <p><strong>Last updated:</strong> February 2026</p>
 
       <p>
-        Open//Structures respects your privacy. This Privacy Policy explains how we
+        Open Civil respects your privacy. This Privacy Policy explains how we
         collect, use, store, and protect your information when you use our
         website and services.
       </p>
@@ -46,7 +46,7 @@ export default function PrivacyPolicy() {
 
       <h2>3. Cookies and Tracking</h2>
       <p>
-        Open//Structures uses only essential cookies or local storage required for
+        Open Civil uses only essential cookies or local storage required for
         authentication and session management. We do not use advertising or
         marketing trackers.
       </p>
@@ -106,7 +106,7 @@ export default function PrivacyPolicy() {
       <p>
         Email: <strong>ahmed.azad@metu.edu.tr</strong>
         <br />
-        Project: Open//Structures
+        Project: Open Civil
         <br />
         Country: Türkiye
       </p>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Opening Open Civil</title>
+    <script>
+      // Recover older links and unknown routes through the site's HashRouter.
+      // Always stay on this origin; the root entry point prevents redirect loops.
+      var route = window.location.pathname.replace(/\/+$/, '') || '/';
+      window.location.replace('/#' + route + window.location.search + window.location.hash);
+    </script>
+    <style>
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; font: 16px/1.6 system-ui, sans-serif; background: #f8fafc; color: #0f172a; }
+      main { max-width: 34rem; padding: 2rem; }
+      a { color: #0369a1; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Opening Open Civil</h1>
+      <p>We’re finding the page you requested.</p>
+      <p>If you aren’t redirected, <a href="/">continue to the homepage</a>.</p>
+    </main>
+  </body>
+</html>
