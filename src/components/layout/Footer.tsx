@@ -25,7 +25,7 @@ export function Footer() {
             <div className="flex gap-4">
               <a href={SITE.organization} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-foreground"><Github className="h-5 w-5" /></a>
               <a href="mailto:ahmed.azad@metu.edu.tr" aria-label="Email Shaikh Ahmed Azad" className="text-muted-foreground hover:text-foreground"><Mail className="h-5 w-5" /></a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-foreground"><Linkedin className="h-5 w-5" /></a>
+              <a href="https://www.linkedin.com/in/shaikh-ahmed-azad/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-foreground"><Linkedin className="h-5 w-5" /></a>
             </div>
           </div>
         </div>
