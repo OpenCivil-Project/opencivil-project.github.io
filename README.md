@@ -1,6 +1,6 @@
 # Open//Civil website
 
-Open//Civil is the organization behind Open//Structures, our flagship structural analysis application. Open Seismic is Coming Soon.
+Open//Civil is the organization behind Open//Structures, a structural analysis application. Open Seismic is Coming Soon.
 
 This repository contains the website only. The application repository is separate.
 

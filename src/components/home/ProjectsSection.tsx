@@ -11,7 +11,7 @@ export function ProjectsSection() {
       </Reveal>
       <div className="grid gap-5 md:grid-cols-[1.35fr_1fr]">
         <Reveal className="panel relative p-7 md:p-9">
-          <div className="mb-8 flex items-center justify-between"><Box className="h-7 w-7 text-accent" /><span className="status-pill">FLAGSHIP APPLICATION</span></div>
+          <div className="mb-8 flex items-center justify-between"><Box className="h-7 w-7 text-accent" /><span className="status-pill">STRUCTURAL ANALYSIS</span></div>
           <h3 className="mb-3 text-2xl font-bold">Open//Structures</h3>
           <p className="mb-7 max-w-lg text-sm leading-relaxed text-muted-foreground">A transparent structural analysis workspace. Model in 3D, explore static and dynamic response, and inspect the matrices behind the results.</p>
           <Link to="/features" className="inline-flex items-center gap-2 text-sm font-semibold">Explore Open//Structures <ArrowUpRight className="h-4 w-4 text-accent" /></Link>

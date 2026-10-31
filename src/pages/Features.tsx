@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Activity, ArrowRight, Box, Braces, Cable, Cuboid, Eye, Layers3, MoveUp, Ruler, Terminal, Waves } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { Reveal } from "@/components/Reveal";
+import { DesignCodes } from "@/components/DesignCodes";
 import { Button } from "@/components/ui/button";
 import feature1 from "@/assets/feature-1.png";
 import feature2 from "@/assets/feature-2.png";
@@ -87,6 +88,8 @@ const Features = () => (
         </Reveal>
       </div>
     </section>
+
+    <DesignCodes />
 
     <section className="bg-muted/30 border-y border-border py-14 md:py-20">
       <div className="max-w-7xl mx-auto px-5">
