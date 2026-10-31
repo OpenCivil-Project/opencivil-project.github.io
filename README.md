@@ -1,6 +1,6 @@
-# Open Civil website
+# Open//Civil website
 
-Open Civil is the organization behind Open Structures, our flagship structural analysis application. Open Seismic is Coming Soon.
+Open//Civil is the organization behind Open//Structures, our flagship structural analysis application. Open Seismic is Coming Soon.
 
 This repository contains the website only. The application repository is separate.
 
@@ -48,7 +48,7 @@ Recommended media: 1920 × 1080 PNG/WebP images and H.264 MP4 videos. Empty URLs
 ## Content and project links
 
 - Organization: https://github.com/OpenCivil-Project
-- Open Structures: https://github.com/OpenCivil-Project/Open-Structures
+- Open//Structures: https://github.com/OpenCivil-Project/Open-Structures
 - Current installer: https://github.com/OpenCivil-Project/Open-Structures/releases/latest
 
 Feature descriptions reflect the application structure and project documentation. OpenSees integration and advanced nonlinear workflows are explicitly a Work in Progress, with active integration and refinement ongoing. The developer biography and CV are preserved.

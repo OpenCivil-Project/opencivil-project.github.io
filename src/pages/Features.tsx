@@ -42,8 +42,8 @@ const Features = () => (
     <section className="border-b border-border py-14 md:py-20">
       <div className="max-w-7xl mx-auto px-5">
         <Reveal className="max-w-3xl">
-          <p className="section-label mb-4">Open Civil / Open Structures</p>
-          <h1 className="text-4xl md:text-5xl leading-tight mb-5">Open Structures features</h1>
+          <p className="section-label mb-4">Open//Civil / Open//Structures</p>
+          <h1 className="text-4xl md:text-5xl leading-tight mb-5">Open//<wbr />Structures features</h1>
           <p className="text-lg leading-relaxed text-muted-foreground">3D structural modeling, static and dynamic analysis, and tools for inspecting the underlying calculations. The application is under active development.</p>
         </Reveal>
       </div>

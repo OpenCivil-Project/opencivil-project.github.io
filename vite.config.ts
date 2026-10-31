@@ -20,11 +20,11 @@ function pagesRouteEntries(): Plugin {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Open Civil</title>
+  <title>Open//Civil</title>
   <meta name="robots" content="noindex">
   <script>window.location.replace('/#/${route}' + window.location.search + window.location.hash);</script>
 </head>
-<body><p>Opening Open Civil… <a href="/#/${route}">Continue to the page</a>.</p></body>
+<body><p>Opening Open//Civil… <a href="/#/${route}">Continue to the page</a>.</p></body>
 </html>`,
         });
       }
