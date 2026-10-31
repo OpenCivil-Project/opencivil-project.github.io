@@ -1,4 +1,5 @@
 import React from "react";
+import { BrandName } from "@/components/BrandName";
 
 export default function TermsOfService() {
   return (
@@ -7,14 +8,14 @@ export default function TermsOfService() {
       <p><strong>Last updated:</strong> February 2026</p>
 
       <p>
-        Welcome to Open//Civil. By accessing or using our website and services, you
+        Welcome to <BrandName />. By accessing or using our website and services, you
         agree to be bound by these Terms of Service. If you do not agree, please
         do not use the service.
       </p>
 
       <h2>1. Description of the Service</h2>
       <p>
-        Open//Civil is an educational and research-oriented platform focused on
+        <BrandName /> is an educational and research-oriented platform focused on
         civil and structural engineering concepts, tools, and visualizations.
         The service is provided for learning and demonstration purposes only.
       </p>
@@ -38,7 +39,7 @@ export default function TermsOfService() {
 
       <h2>4. Educational Disclaimer</h2>
       <p>
-        Open//Civil does not provide professional engineering advice. All content,
+        <BrandName /> does not provide professional engineering advice. All content,
         calculations, and visualizations are provided for educational purposes
         only and must not be used for real-world structural design or safety-
         critical decisions.
@@ -46,7 +47,7 @@ export default function TermsOfService() {
 
       <h2>5. Intellectual Property</h2>
       <p>
-        All content and materials provided by Open//Civil are protected by
+        All content and materials provided by <BrandName /> are protected by
         applicable intellectual property laws unless otherwise stated. Open-
         source components remain under their respective licenses.
       </p>
@@ -71,7 +72,7 @@ export default function TermsOfService() {
 
       <h2>8. Limitation of Liability</h2>
       <p>
-        To the maximum extent permitted by law, Open//Civil shall not be liable for
+        To the maximum extent permitted by law, <BrandName /> shall not be liable for
         any direct or indirect damages resulting from the use or inability to
         use the service.
       </p>
@@ -92,7 +93,7 @@ export default function TermsOfService() {
       <p>
         Email: <strong>ahmed.azad@metu.edu.tr</strong>
         <br />
-        Project: Open//Civil
+        Project: <BrandName />
         <br />
         Country: Türkiye
       </p>

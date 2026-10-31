@@ -1,5 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { Reveal } from "@/components/Reveal";
+import { BrandName } from "@/components/BrandName";
 import { MediaFrame } from "@/components/MediaFrame";
 import { implementationMedia } from "@/data/media";
 import homeVideo from "@/assets/Home1.mp4";
@@ -10,7 +11,7 @@ import feature3 from "@/assets/feature-3.png";
 const SUPABASE_URL = "https://zizmttgmketyuoerainb.supabase.co";
 
 const videos = [
-  { src: homeVideo, title: "Desktop modeling workflow", description: "A recording of the Open//Structures desktop workspace.", poster: heroImage },
+  { src: homeVideo, title: "Desktop modeling workflow", description: <>A recording of the <BrandName product="structures" /> desktop workspace.</>, poster: heroImage },
   { src: `${SUPABASE_URL}/storage/v1/object/public/videos/Deformed%20Shape%20and%20Animation2.mp4`, title: "Interface overview", description: "Model setup and visualization controls.", poster: heroImage },
   { src: `${SUPABASE_URL}/storage/v1/object/public/videos/Deformed%20Shape%20and%20Animation.mp4`, title: "Deformed shape animation", description: "Structural displacement under applied loads, magnified for visibility.", poster: feature3 },
   { src: `${SUPABASE_URL}/storage/v1/object/public/videos/Modal%20Analysis%20Animation.mp4`, title: "Modal analysis animation", description: "Vibration mode shapes from a modal analysis.", poster: feature3 },
@@ -23,7 +24,7 @@ const Showcase = () => (
     <section className="border-b border-border py-14 md:py-20">
       <div className="max-w-7xl mx-auto px-5">
         <Reveal className="max-w-3xl">
-          <p className="section-label mb-4">Open//Civil / Open//Structures</p>
+          <p className="section-label mb-4"><BrandName uppercase /> / <BrandName product="structures" uppercase /></p>
           <h1 className="text-4xl md:text-5xl leading-tight mb-5">Implementation & demonstrations</h1>
           <p className="text-lg text-muted-foreground leading-relaxed">Recordings of the modeling interface, deformed shapes, and analysis results. Use the video controls to play each demonstration.</p>
         </Reveal>

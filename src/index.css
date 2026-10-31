@@ -20,6 +20,8 @@
     --muted: 35 15% 94%;
     --muted-foreground: 218 10% 43%;
     --accent: 204 78% 37%;
+    --brand-blue: 204 100% 34%;
+    --brand-blue-inverse: 204 89% 68%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 70% 48%;
     --destructive-foreground: 0 0% 100%;
@@ -56,6 +58,8 @@
     --muted: 218 20% 16%;
     --muted-foreground: 218 12% 66%;
     --accent: 204 70% 66%;
+    --brand-blue: 204 89% 56%;
+    --brand-blue-inverse: 204 100% 34%;
     --accent-foreground: 218 28% 9%;
     --border: 218 17% 23%;
     --input: 218 17% 23%;
@@ -79,6 +83,10 @@
   section[id] { scroll-margin-top: 90px; }
 }
 @layer components {
+  .brand-name { color: hsl(var(--foreground)); }
+  .brand-suffix { color: hsl(var(--brand-blue)); }
+  .brand-name-inverse { color: hsl(var(--primary-foreground)); }
+  .brand-name-inverse .brand-suffix { color: hsl(var(--brand-blue-inverse)); }
   .section-shell { @apply mx-auto w-full max-w-7xl px-5 lg:px-8; }
   .section-label { @apply font-mono text-[10px] font-medium tracking-[0.16em] text-muted-foreground; }
   .panel { @apply rounded-xl border border-border bg-card; }

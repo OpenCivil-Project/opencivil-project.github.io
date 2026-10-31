@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Activity, ArrowRight, Box, Braces, Cable, Cuboid, Eye, Layers3, MoveUp, Ruler, Terminal, Waves } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { Reveal } from "@/components/Reveal";
+import { BrandName } from "@/components/BrandName";
 import { DesignCodes } from "@/components/DesignCodes";
 import { Button } from "@/components/ui/button";
 import feature1 from "@/assets/feature-1.png";
@@ -43,8 +44,8 @@ const Features = () => (
     <section className="border-b border-border py-14 md:py-20">
       <div className="max-w-7xl mx-auto px-5">
         <Reveal className="max-w-3xl">
-          <p className="section-label mb-4">Open//Civil / Open//Structures</p>
-          <h1 className="text-4xl md:text-5xl leading-tight mb-5">Open//<wbr />Structures features</h1>
+          <p className="section-label mb-4"><BrandName uppercase /> / <BrandName product="structures" uppercase /></p>
+          <h1 className="text-4xl md:text-5xl leading-tight mb-5"><BrandName product="structures" allowWrap /> features</h1>
           <p className="text-lg leading-relaxed text-muted-foreground">3D structural modeling, static and dynamic analysis, and tools for inspecting the underlying calculations. The application is under active development.</p>
         </Reveal>
       </div>
