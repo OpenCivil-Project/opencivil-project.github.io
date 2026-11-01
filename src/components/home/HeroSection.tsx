@@ -13,7 +13,10 @@ export function HeroSection() {
       <div className="section-shell relative pb-12 pt-16 lg:pb-16 lg:pt-24">
         <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.15fr] lg:gap-14">
           <Reveal>
-            <p className="section-label mb-5"><BrandName uppercase /> / STRUCTURAL ANALYSIS</p>
+            <div className="mb-5 flex flex-wrap items-center gap-x-4 gap-y-3">
+              <p className="section-label"><BrandName uppercase /> / STRUCTURAL ANALYSIS</p>
+              <span className="rounded-full border border-accent/25 bg-accent/5 px-3 py-1.5 text-xs font-semibold text-accent">Free & open source</span>
+            </div>
             <h1 className="mb-5 text-5xl font-bold leading-[1.08] tracking-tight lg:text-6xl"><BrandName product="structures" allowWrap /></h1>
             <p className="mb-5 text-xl leading-snug text-foreground lg:text-2xl">3D structural analysis for learning and research.</p>
             <p className="mb-8 max-w-lg text-base leading-relaxed text-muted-foreground">Model structures, run static and dynamic analyses, and inspect the matrices, forces, and deformations behind the results. <BrandName product="structures" /> is developed by <BrandName />.</p>
