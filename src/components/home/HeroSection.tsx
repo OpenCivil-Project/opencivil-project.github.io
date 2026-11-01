@@ -3,7 +3,8 @@ import { ArrowDown, ArrowRight, ArrowUpRight, Box, Code2 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { SITE } from "@/data/site";
 import { BrandName } from "@/components/BrandName";
-import heroImage from "@/assets/hero-main.png";
+import heroLightImage from "@/assets/hero-light.png";
+import heroDarkImage from "@/assets/hero-dark.png";
 
 export function HeroSection() {
   return (
@@ -28,7 +29,10 @@ export function HeroSection() {
                 <div className="flex items-center gap-2 text-xs font-medium"><Box className="h-4 w-4 text-accent" /><BrandName product="structures" /></div>
                 <span className="font-mono text-[10px] text-muted-foreground">MODEL / ANALYZE / INSPECT</span>
               </div>
-              <img src={heroImage} width="1365" height="718" alt="Open//Structures desktop workspace displaying a three-dimensional structural frame with loads and supports" className="block w-full" loading="eager" />
+              <div className="aspect-[1365/746] bg-white dark:bg-[#1e1e1e]">
+                <img src={heroLightImage} width="1365" height="746" alt="Open//Structures in light mode displaying a multi-storey structural model with frame and area elements" className="block h-full w-full object-contain dark:hidden" loading="eager" />
+                <img src={heroDarkImage} width="1365" height="742" alt="Open//Structures in dark mode displaying a multi-storey structural model with frame and area elements" className="hidden h-full w-full object-contain dark:block" loading="eager" />
+              </div>
               <div className="flex items-center justify-between border-t border-border px-4 py-3 text-[11px] text-muted-foreground"><span className="inline-flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />An inspectable analysis workspace</span><Code2 className="h-4 w-4" /></div>
             </div>
             <div className="mt-4 flex justify-end"><Link to="/showcase" className="inline-flex items-center gap-2 font-mono text-xs text-muted-foreground hover:text-foreground">See the implementation <ArrowRight className="h-3.5 w-3.5" /></Link></div>

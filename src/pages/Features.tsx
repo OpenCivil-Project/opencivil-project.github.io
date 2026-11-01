@@ -4,6 +4,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Reveal } from "@/components/Reveal";
 import { BrandName } from "@/components/BrandName";
 import { DesignCodes } from "@/components/DesignCodes";
+import { SectionCuts } from "@/components/SectionCuts";
 import { Button } from "@/components/ui/button";
 import feature1 from "@/assets/feature-1.png";
 import feature2 from "@/assets/feature-2.png";
@@ -91,6 +92,8 @@ const Features = () => (
     </section>
 
     <DesignCodes />
+
+    <SectionCuts />
 
     <section className="bg-muted/30 border-y border-border py-14 md:py-20">
       <div className="max-w-7xl mx-auto px-5">
