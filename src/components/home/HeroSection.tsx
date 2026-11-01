@@ -13,13 +13,10 @@ export function HeroSection() {
       <div className="section-shell relative pb-12 pt-16 lg:pb-16 lg:pt-24">
         <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.15fr] lg:gap-14">
           <Reveal>
-            <div className="mb-5 flex flex-wrap items-center gap-x-4 gap-y-3">
-              <p className="section-label"><BrandName uppercase /> / STRUCTURAL ANALYSIS</p>
-              <span className="rounded-full border border-accent/25 bg-accent/5 px-3 py-1.5 text-xs font-semibold text-accent">Free & open source</span>
-            </div>
+            <p className="mb-4 text-sm font-medium text-accent">Free & open source</p>
             <h1 className="mb-5 text-5xl font-bold leading-[1.08] tracking-tight lg:text-6xl"><BrandName product="structures" allowWrap /></h1>
             <p className="mb-5 text-xl leading-snug text-foreground lg:text-2xl">3D structural analysis for learning and research.</p>
-            <p className="mb-8 max-w-lg text-base leading-relaxed text-muted-foreground">Model structures, run static and dynamic analyses, and inspect the matrices, forces, and deformations behind the results. <BrandName product="structures" /> is developed by <BrandName />.</p>
+            <p className="mb-8 max-w-lg text-base leading-relaxed text-muted-foreground">Model structures, run static and dynamic analyses, and inspect the matrices, forces, and deformations behind the results.</p>
             <div className="flex flex-wrap gap-3">
               <a href={SITE.download} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"><span>Get <BrandName product="structures" inverse /></span> <ArrowUpRight className="h-4 w-4" /></a>
               <Link to="/features" className="inline-flex items-center gap-3 rounded-lg border border-border bg-background px-5 py-3 text-sm font-semibold transition-colors hover:bg-muted">Explore features <ArrowRight className="h-4 w-4" /></Link>
